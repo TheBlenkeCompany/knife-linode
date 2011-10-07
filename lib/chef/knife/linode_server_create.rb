@@ -167,7 +167,7 @@ class Chef
 
         validate!
 
-        datacenter = connection.data_centers.select { |dc| dc.id == locate_config_value(:linode_datacenter) }.first
+        datacenter = connection.data_centers.select { |dc| dc.id.to_i == locate_config_value(:linode_datacenter).to_i }.first
 
         flavor = connection.flavors.get(locate_config_value(:linode_flavor).to_i)
 
